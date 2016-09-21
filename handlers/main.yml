@@ -1,0 +1,7 @@
+---
+# handlers file for vagrant
+- name: restart vagrant services
+  service:
+    name=vagrant_service_name
+    state=restarted
+  become: yes

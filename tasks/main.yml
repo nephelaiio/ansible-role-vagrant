@@ -1,0 +1,43 @@
+---
+# Include variable definitions
+- name: "include variable overrides"
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "vars/{{ ansible_distrubition }}.yml"
+    - "vars/{{ ansible_os_family }}.yml"
+  tags:
+    - vagrant
+
+# Install packages
+- name: install vagrant packages
+  package: name="{{ vagrant_packages }}" state="{{ vagrant_packages_state }}"
+  become: yes
+  tags:
+    - vagrant
+
+# Set up configuration file
+- name: configure vagrant
+  template: >
+    src=vagrant_conf_template
+    dest="{{ vagrant_conf_path }}"
+  become: no
+  when: vagrant_conf_path is defined
+  tags:
+    - vagrant
+    - vagrant_conf
+  notify:
+    - restart vagrant
+
+# Manage service
+- name: manage vagrant services
+  service:
+    name=vagrant_service_name
+    state=vagrant_service_status
+  become: yes
+  when: vagrant_service_name is defined
+  tags:
+    - vagrant
+    - vagrant_service
+  notify:
+    - restart vagrant
