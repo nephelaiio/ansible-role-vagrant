@@ -2,8 +2,3 @@
 # User variables for role
 vagrant_packages: vagrant
 vagrant_packages_state: present
-vagrant_version: 1.8.5
-#vagrant_conf_template: vagrant.conf
-#vagrant_conf_path: /etc/vagrant/vagrant.conf
-#vagrant_service_name: vagrant
-#vagrant_service_status: started

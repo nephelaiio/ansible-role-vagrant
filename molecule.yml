@@ -8,32 +8,24 @@ docker:
         image: debian
         image_version: jessie
         ansible_groups:
-          - vagrant-debian
+          - test
       - name: ansible-vagrant-xenial
         image: ubuntu
         image_version: xenial
         ansible_groups:
-          - vagrant-ubuntu
-      - name: ansible-vagrant-centos6
-        image: centos
-        image_version: 6
-        ansible_groups:
-          - vagrant-centos
+          - test
       - name: ansible-vagrant-centos7
         image: centos
         image_version: 7
         ansible_groups:
-          - vagrant-centos
+          - test
       - name: ansible-vagrant-arch
         image: pritunl/archlinux
         image_version: latest
         dockerfile: docker/arch.dockerfile
-        ansible_groups:
-          - vagrant-arch
         command: /bin/bash
-
-#ansible:
-#  requirements_file: dependencies.yml
+        ansible_groups:
+          - test
 
 verifier:
   name: testinfra
