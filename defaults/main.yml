@@ -1,4 +1,5 @@
 ---
 # User variables for role
 vagrant_packages: vagrant
+
 vagrant_packages_state: present
