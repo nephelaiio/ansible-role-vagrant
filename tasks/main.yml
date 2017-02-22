@@ -1,3 +1,4 @@
+# vim: sw=2 ts=2 et :
 ---
 # Include variable definitions
 - name: "include variable overrides"
@@ -11,9 +12,9 @@
 
 # Install packages
 - name: install vagrant packages
-  package: >
-    name="{{ vagrant_packages }}"
-    state="{{ vagrant_packages_state }}"
+  package:
+    name: "{{ vagrant_packages }}"
+    state: "{{ vagrant_packages_state }}"
   become: yes
   tags:
     - vagrant
