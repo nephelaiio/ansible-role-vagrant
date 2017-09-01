@@ -1,20 +1,20 @@
-# vim: sw=2 ts=2 et :
 ---
-# Include variable definitions
-- name: "include variable overrides"
+- name: include variable overrides
   include_vars: "{{ item }}"
   with_first_found:
-    - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-    - "vars/{{ ansible_distrubition }}.yml"
-    - "vars/{{ ansible_os_family }}.yml"
+    - files:
+        - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "vars/{{ ansible_distribution }}.yml"
+        - "vars/{{ ansible_os_family }}.yml"
+      skip: true
   tags:
     - vagrant
 
-# Install packages
 - name: install vagrant packages
   package:
-    name: "{{ vagrant_packages }}"
+    name: "{{ item }}"
     state: "{{ vagrant_packages_state }}"
   become: yes
+  with_items: "{{ vagrant_packages }}"
   tags:
     - vagrant
