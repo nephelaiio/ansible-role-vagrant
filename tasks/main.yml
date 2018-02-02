@@ -11,6 +11,6 @@
 - name: install vagrant packages
   package:
     name: "{{ item }}"
-    state: "{{ vagrant_packages_state | default(vagrant_packages_default) }}"
+    state: "{{ vagrant_packages_state }}"
   become: yes
-  with_items: "{{ vagrant_packages }}"
+  with_items: "{{ vagrant_packages | default(vagrant_packages_default) }}"
