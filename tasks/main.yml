@@ -8,9 +8,19 @@
         - "vars/{{ ansible_os_family }}.yml"
       skip: true
 
-- name: install vagrant packages
-  package:
-    name: "{{ item }}"
+- name: install package requirements for debian derivatives
+  apt:
+    name: xz-utils
+    state: present
+  when: (ansible_os_family | lower) == 'debian'
+
+- name: install vagrant packages for debian derivatives
+  apt:
+    deb: xz-utils
     state: "{{ vagrant_packages_state }}"
-  become: yes
-  with_items: "{{ vagrant_packages | default(vagrant_packages_default) }}"
+  when: (ansible_os_family | lower) == 'debian'
+
+- name: install vagrant packages for redhat derivatives
+  yum:
+    name: "{{ vagrant_packages | default(vagrant_packages_default) }}"
+    state: "{{ vagrant_packages_state }}"

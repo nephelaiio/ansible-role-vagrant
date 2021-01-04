@@ -1,3 +1,2 @@
 ---
-vagrant_packages_default:
-  - https://releases.hashicorp.com/vagrant/1.8.5/vagrant_1.8.5_x86_64.rpm
+vagrant_package_default: "https://releases.hashicorp.com/vagrant/{{ vagrant_release }}/vagrant_{{ vagrant_release }}_x86_64.rpm"

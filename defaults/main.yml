@@ -1,3 +1,4 @@
 ---
 # vagrant_packages: vagrant
 vagrant_packages_state: present
+vagrant_release: 2.2.14
