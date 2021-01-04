@@ -1,2 +1,2 @@
 ---
-vagrant_package_default: "https://releases.hashicorp.com/vagrant/{{ vagrant_release }}/vagrant_{{ vagrant_release }}_x86_64.rpm"
+vagrant_packages_default: "https://releases.hashicorp.com/vagrant/{{ vagrant_release }}/vagrant_{{ vagrant_release }}_x86_64.rpm"
