@@ -1,7 +1,7 @@
 # nephelaiio.vagrant
 
-[![Build Status](https://travis-ci.org/nephelaiio/ansible-role-vagrant.svg?branch=master)](https://travis-ci.org/nephelaiio/ansible-role-vagrant)
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-systemd--service-blue.svg)](https://galaxy.ansible.com/nephelaiio/vagrant/)
+[![Build Status](https://github.com/nephelaiio/ansible-role-vagrant/workflows/CI/badge.svg)](https://github.com/nephelaiio/ansible-role-vagrant/actions)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-nephelaiio.vagrant-blue.svg)](https://galaxy.ansible.com/nephelaiio/vagrant/)
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/vagrant) to install and configure vagrant
 
@@ -24,9 +24,10 @@ Including an example of how to use your role (for instance, with variables passe
 Please make sure your environment has [docker](https://www.docker.com) installed in order to run role validation tests. Additional python dependencies are listed in the [requirements file](https://github.com/nephelaiio/ansible-role-requirements/blob/master/requirements.txt)
 
 Role is tested against the following distributions (docker images):
-  * Ubuntu Xenial
+  * Ubuntu Focal
+  * Ubuntu Bionic
   * CentOS 7
-  * Debian Stretch
+  * Debian Buster
 
 You can test the role directly from sources using command ` molecule test `
 
