@@ -1,2 +1,0 @@
----
-vagrant_packages_default: "https://releases.hashicorp.com/vagrant/{{ vagrant_release }}/vagrant_{{ vagrant_release }}_x86_64.deb"
